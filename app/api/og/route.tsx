@@ -20,21 +20,21 @@ export async function GET(req: Request) {
   const fid = searchParams.get('fid');
   const profileImage = searchParams.get('profileImage') || `${NEXT_PUBLIC_URL}/default-image.png`;
 
-  const btcUsdPrice = searchParams.get('btcUsdPrice');
-  const btcKrwPrice = searchParams.get('btcKrwPrice');
-  const ethUsdPrice = searchParams.get('ethUsdPrice');
-  const ethKrwPrice = searchParams.get('ethKrwPrice');
+  const btcUsdPrice = parseFloat(searchParams.get('btcUsdPrice') ?? "").toLocaleString();
+  const btcKrwPrice = parseFloat(searchParams.get('btcKrwPrice') ?? "").toLocaleString();
+  const ethUsdPrice = parseFloat(searchParams.get('ethUsdPrice') ?? "").toLocaleString();
+  const ethKrwPrice = parseFloat(searchParams.get('ethKrwPrice') ?? "").toLocaleString();
 
-  const degenUsdPrice = searchParams.get('degenUsdPrice');
-  const degenKrwPrice = searchParams.get('degenKrwPrice');
-  const moxieUsdPrice = searchParams.get('moxieUsdPrice');
-  const moxieKrwPrice = searchParams.get('moxieKrwPrice');
-  const rareUsdPrice = searchParams.get('rareUsdPrice');
-  const rareKrwPrice = searchParams.get('rareKrwPrice');
+  const degenUsdPrice = parseFloat(searchParams.get('degenUsdPrice') ?? "").toLocaleString();
+  const degenKrwPrice = parseFloat(searchParams.get('degenKrwPrice') ?? "").toLocaleString();
+  const moxieUsdPrice = parseFloat(searchParams.get('moxieUsdPrice') ?? "").toLocaleString();
+  const moxieKrwPrice = parseFloat(searchParams.get('moxieKrwPrice') ?? "").toLocaleString();
+  const rareUsdPrice = parseFloat(searchParams.get('rareUsdPrice') ?? "").toLocaleString();
+  const rareKrwPrice = parseFloat(searchParams.get('rareKrwPrice') ?? "").toLocaleString();
 
-  const btcDominance = searchParams.get('btcDominance');
-  const ethDominance = searchParams.get('ethDominance');
-  const fearAndGreedValue = searchParams.get('fearAndGreedValue');
+  const btcDominance = parseFloat(searchParams.get('btcDominance') ?? "").toLocaleString();
+  const ethDominance = parseFloat(searchParams.get('ethDominance') ?? "").toLocaleString();
+  const fearAndGreedValue = parseFloat(searchParams.get('fearAndGreedValue') ?? "").toLocaleString();
   const fearAndGreedClassification = (searchParams.get('fearAndGreedClassification') ?? "").replace(/\s+/g, '');
   
 

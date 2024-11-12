@@ -78,21 +78,21 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     };
 
 
-    //크립토 실시간 데이터 가져오기
-    let btcUsdPrice = 'N/A';
-    let btcKrwPrice = 'N/A';
-    let ethUsdPrice = 'N/A';
-    let ethKrwPrice = 'N/A';
-    let degenUsdPrice = 'N/A';
-    let degenKrwPrice = 'N/A';
-    let moxieUsdPrice = 'N/A';
-    let moxieKrwPrice = 'N/A';
-    let rareUsdPrice = 'N/A';
-    let rareKrwPrice = 'N/A';
+    //크립토 실시간 데이터 가져오기    
+    let btcUsdPrice = 0;
+    let btcKrwPrice = 0;
+    let ethUsdPrice = 0;
+    let ethKrwPrice = 0;
+    let degenUsdPrice = 0;
+    let degenKrwPrice = 0;
+    let moxieUsdPrice = 0;
+    let moxieKrwPrice = 0;
+    let rareUsdPrice = 0;
+    let rareKrwPrice = 0;
 
-    let btcDominance = 'N/A';
-    let ethDominance = 'N/A';
-    let fearAndGreedValue = 'N/A';
+    let btcDominance = 0;
+    let ethDominance = 0;
+    let fearAndGreedValue = 0;
     let fearAndGreedClassification = 'N/A';
 
     
@@ -104,22 +104,23 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
               fearAndGreedValue: tempFearAndGreedValue, fearAndGreedClassification: tempFearAndGreedClassification
             } = await fetchCoinData();
 
-      btcUsdPrice = parseFloat(tempBtcUsdPrice).toLocaleString();
-      btcKrwPrice = parseFloat(tempBtcKrwPrice).toLocaleString();            
-      ethUsdPrice = parseFloat(tempEthUsdPrice).toLocaleString();
-      ethKrwPrice = parseFloat(tempEthKrwPrice).toLocaleString();            
+
+      btcUsdPrice = parseFloat(tempBtcUsdPrice);
+      btcKrwPrice = parseFloat(tempBtcKrwPrice);            
+      ethUsdPrice = parseFloat(tempEthUsdPrice);
+      ethKrwPrice = parseFloat(tempEthKrwPrice);            
       
-      degenUsdPrice = parseFloat(tempDegenUsdPrice).toLocaleString();
-      degenKrwPrice = parseFloat(tempDegenKrwPrice).toLocaleString();            
+      degenUsdPrice = parseFloat(tempDegenUsdPrice);
+      degenKrwPrice = parseFloat(tempDegenKrwPrice);            
       moxieUsdPrice = tempMoxieUsdPrice;
       //moxieKrwPrice = parseFloat(tempMoxieKrwPrice).toLocaleString();
-      moxieKrwPrice = parseFloat(tempMoxieKrwPrice).toLocaleString();
-      rareUsdPrice = parseFloat(tempRareUsdPrice).toLocaleString();
-      rareKrwPrice = parseFloat(tempRareKrwPrice).toLocaleString();            
+      moxieKrwPrice = parseFloat(tempMoxieKrwPrice);
+      rareUsdPrice = parseFloat(tempRareUsdPrice);
+      rareKrwPrice = parseFloat(tempRareKrwPrice);            
 
-      btcDominance = parseFloat(tempBtcDominance).toLocaleString();
-      ethDominance = parseFloat(tempEthDominance).toLocaleString();            
-      fearAndGreedValue = parseFloat(tempFearAndGreedValue).toLocaleString();
+      btcDominance = parseFloat(tempBtcDominance);
+      ethDominance = parseFloat(tempEthDominance);            
+      fearAndGreedValue = parseFloat(tempFearAndGreedValue);
       fearAndGreedClassification = tempFearAndGreedClassification;           
 
 
