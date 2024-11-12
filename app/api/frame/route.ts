@@ -280,7 +280,7 @@ export async function GET(req: NextRequest) {
     fear_and_greed_classification: data.fear_and_greed_classification,
   };
 
-  // frameData 배열을 JSON 문자열로 변환하고 URL 인코딩
+  // frameData 배열을 JSON 문자열로 변환하고 URL 인코딩.
 
   const profileImage = encodeURIComponent(frameData.profile_image);
   const frameUrl = `${NEXT_PUBLIC_URL}/api/frame?fid=${frameData.fid}&cache_burst=${Math.floor(Date.now() / 1000)}`;
