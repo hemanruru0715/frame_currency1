@@ -180,12 +180,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       getFrameHtmlResponse({
         buttons: [
           { 
-            label: 'MyStats/🔎' 
+            label: 'Check Crypto/🔎' 
           },
           { 
             action: 'link', 
             label: '🔄Share', 
-            target: `https://warpcast.com/~/compose?text=Check your degen's real-time price and allowance, and how many times it's been sent and received. Frame created by @hemanruru&embeds%5B%5D=${encodeURIComponent(frameUrl)}`
+            target: `https://warpcast.com/~/compose?text=Get real-time data from the crypto market. View the Fear and Greed Index, dominance, and real-time USD and KRW prices for Bitcoin and Altcoins. Frame created by @hemanruru&embeds%5B%5D=${encodeURIComponent(frameUrl)}`
           },
           {
             action: 'link', 
@@ -290,12 +290,12 @@ export async function GET(req: NextRequest) {
     getFrameHtmlResponse({
       buttons: [
         { 
-          label: 'MyStats/🔎' 
+          label: 'Check Crypto/🔎' 
         },
         { 
           action: 'link', 
           label: '🔄Share', 
-          target: `https://warpcast.com/~/compose?text=Check your degen's real-time price and allowance, and how many times it's been sent and received. Frame created by @hemanruru&embeds%5B%5D=${encodeURIComponent(frameUrl)}`
+          target: `https://warpcast.com/~/compose?text=Get real-time data from the crypto market. View the Fear and Greed Index, dominance, and real-time USD and KRW prices for Bitcoin and Altcoins. Frame created by @hemanruru&embeds%5B%5D=${encodeURIComponent(frameUrl)}`
         },
         {
           action: 'link', 
