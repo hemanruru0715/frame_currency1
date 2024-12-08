@@ -90,6 +90,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     let rareUsdPrice = 0;
     let rareKrwPrice = 0;
 
+    let btcChange = 0;
+    let ethChange = 0;
+    let degenChange = 0;
+    let moxieChange = 0;
+    let rareChange = 0;
+
     let btcDominance = 0;
     let ethDominance = 0;
     let fearAndGreedValue = 0;
@@ -100,6 +106,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       const { btcUsdPrice: tempBtcUsdPrice, btcKrwPrice: tempBtcKrwPrice, ethUsdPrice: tempEthUsdPrice, ethKrwPrice: tempEthKrwPrice,
               degenUsdPrice: tempDegenUsdPrice, degenKrwPrice: tempDegenKrwPrice, moxieUsdPrice: tempMoxieUsdPrice, moxieKrwPrice: tempMoxieKrwPrice, 
               rareUsdPrice: tempRareUsdPrice, rareKrwPrice: tempRareKrwPrice, 
+              btcChange: tempBtcChange, ethChange: tempEthChange, degenChange: tempDegenChange, moxieChange: tempMoxieChange, rareChange: tempRareChange, 
               btcDominance: tempBtcDominance, ethDominance: tempEthDominance, 
               fearAndGreedValue: tempFearAndGreedValue, fearAndGreedClassification: tempFearAndGreedClassification
             } = await fetchCoinData();
@@ -117,6 +124,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       moxieKrwPrice = parseFloat(tempMoxieKrwPrice);
       rareUsdPrice = parseFloat(tempRareUsdPrice);
       rareKrwPrice = parseFloat(tempRareKrwPrice);            
+
+      btcChange = parseFloat(tempBtcChange);         
+      ethChange = parseFloat(tempEthChange);         
+      degenChange = parseFloat(tempDegenChange);         
+      moxieChange = parseFloat(tempMoxieChange);         
+      rareChange = parseFloat(tempRareChange);         
 
       btcDominance = parseFloat(tempBtcDominance);
       ethDominance = parseFloat(tempEthDominance);            
@@ -136,6 +149,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       console.warn("moxieKrwPrice=" + moxieKrwPrice);
       console.warn("rareUsdPrice=" + rareUsdPrice);
       console.warn("rareKrwPrice=" + rareKrwPrice);
+
+      console.warn("btcChange=" + btcChange);
+      console.warn("ethChange=" + ethChange);
+      console.warn("degenChange=" + degenChange);
+      console.warn("moxieChange=" + moxieChange);
+      console.warn("rareChange=" + rareChange);
 
       console.warn("btcDominance=" + btcDominance);
       console.warn("ethDominance=" + ethDominance);
@@ -168,6 +187,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       rare_krw_price: rareKrwPrice,
       btc_dominance: btcDominance,
       eth_dominance: ethDominance,
+      btc_change: btcChange,
+      eth_change: ethChange,
+      degen_change: degenChange,
+      moxie_change: moxieChange,
+      rare_change: rareChange,
       fear_and_greed_value: fearAndGreedValue,
       fear_and_greed_classification: fearAndGreedClassification,
     });
@@ -198,6 +222,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                                          &btcUsdPrice=${btcUsdPrice}&btcKrwPrice=${btcKrwPrice}&ethUsdPrice=${ethUsdPrice}&ethKrwPrice=${ethKrwPrice}
                                          &degenUsdPrice=${degenUsdPrice}&degenKrwPrice=${degenKrwPrice}&moxieUsdPrice=${moxieUsdPrice}&moxieKrwPrice=${moxieKrwPrice}
                                          &rareUsdPrice=${rareUsdPrice}&rareKrwPrice=${rareKrwPrice}
+                                         &btcChange=${btcChange}&ethChange=${ethChange}&degenChange=${degenChange}&moxieChange=${moxieChange}&rareChange=${rareChange}
                                          &btcDominance=${btcDominance}&ethDominance=${ethDominance}
                                          &fearAndGreedValue=${fearAndGreedValue}&fearAndGreedClassification=${fearAndGreedClassification}
                                          &cache_burst=${Math.floor(Date.now() / 1000)}`,
@@ -248,6 +273,11 @@ export async function GET(req: NextRequest) {
     rare_krw_price: number;
     btc_dominance: number;
     eth_dominance: number;
+    btc_change: number,
+    eth_change: number,
+    degen_change: number,
+    moxie_change: number,
+    rare_change: number,
     fear_and_greed_value: number;
     fear_and_greed_classification: string;
   }
@@ -276,6 +306,11 @@ export async function GET(req: NextRequest) {
     rare_krw_price:  data.rare_krw_price,
     btc_dominance:  data.btc_dominance,
     eth_dominance:  data.eth_dominance,
+    btc_change: data.btc_change,
+    eth_change: data.eth_change,
+    degen_change: data.degen_change,
+    moxie_change: data.moxie_change,
+    rare_change: data.rare_change,
     fear_and_greed_value:  data.fear_and_greed_value,
     fear_and_greed_classification: data.fear_and_greed_classification,
   };
@@ -308,6 +343,7 @@ export async function GET(req: NextRequest) {
                                        &btcUsdPrice=${frameData.btc_usd_price}&btcKrwPrice=${frameData.btc_krw_price}&ethUsdPrice=${frameData.eth_usd_price}&ethKrwPrice=${frameData.eth_krw_price}
                                        &degenUsdPrice=${frameData.degen_usd_price}&degenKrwPrice=${frameData.degen_krw_price}&moxieUsdPrice=${frameData.moxic_usd_price}&moxieKrwPrice=${frameData.moxie_krw_price}
                                        &rareUsdPrice=${frameData.rare_usd_price}&rareKrwPrice=${frameData.rare_krw_price}
+                                       &btcChange=${frameData.btc_change}&ethChange=${frameData.eth_change}&degenChange=${frameData.degen_change}&moxieChange=${frameData.moxie_change}&rareChange=${frameData.rare_change}
                                        &btcDominance=${frameData.btc_dominance}&ethDominance=${frameData.eth_dominance}
                                        &fearAndGreedValue=${frameData.fear_and_greed_value}&fearAndGreedClassification=${frameData.fear_and_greed_classification}
                                        &cache_burst=${Math.floor(Date.now() / 1000)}`,

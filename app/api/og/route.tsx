@@ -32,6 +32,12 @@ export async function GET(req: Request) {
   const rareUsdPrice = parseFloat(searchParams.get('rareUsdPrice') ?? "").toLocaleString();
   const rareKrwPrice = parseFloat(searchParams.get('rareKrwPrice') ?? "").toLocaleString();
 
+  const btcChange   = parseFloat(searchParams.get('btcChange') ?? "").toLocaleString();
+  const ethChange   = parseFloat(searchParams.get('ethChange') ?? "").toLocaleString();
+  const degenChange = parseFloat(searchParams.get('degenChange') ?? "").toLocaleString();
+  const moxieChange = parseFloat(searchParams.get('moxieChange') ?? "").toLocaleString();
+  const rareChange  = parseFloat(searchParams.get('rareChange') ?? "").toLocaleString();
+
   const btcDominance = parseFloat(searchParams.get('btcDominance') ?? "").toLocaleString();
   const ethDominance = parseFloat(searchParams.get('ethDominance') ?? "").toLocaleString();
   const fearAndGreedValue = parseFloat(searchParams.get('fearAndGreedValue') ?? "").toLocaleString();
@@ -193,6 +199,9 @@ export async function GET(req: Request) {
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>KRW</strong>
           </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>Change%(24h)</strong>
+          </div>
        </div>
 
        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', fontSize: '35px', color: '#2600FF', marginBottom: '30px' }}>
@@ -204,6 +213,9 @@ export async function GET(req: Request) {
           </div>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>{btcKrwPrice}</strong>
+          </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>{btcChange}</strong>
           </div>
        </div>
 
@@ -217,6 +229,9 @@ export async function GET(req: Request) {
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>{ethKrwPrice}</strong>
           </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>{ethChange}</strong>
+          </div>
        </div>
 
        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', fontSize: '35px', color: '#2600FF', marginBottom: '30px' }}>
@@ -228,6 +243,9 @@ export async function GET(req: Request) {
           </div>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>{degenKrwPrice}</strong>
+          </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>{degenChange}</strong>
           </div>
        </div>
 
@@ -241,6 +259,9 @@ export async function GET(req: Request) {
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>{moxieKrwPrice}</strong>
           </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>{moxieChange}</strong>
+          </div>
        </div>
 
        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', fontSize: '35px', color: '#2600FF', marginBottom: '30px' }}>
@@ -252,6 +273,9 @@ export async function GET(req: Request) {
           </div>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <strong>{rareKrwPrice}</strong>
+          </div>
+          <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+            <strong>{rareChange}</strong>
           </div>
        </div>
 

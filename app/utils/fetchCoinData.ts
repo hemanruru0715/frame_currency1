@@ -76,6 +76,13 @@ export async function fetchCoinData() {
   const rareUsdPrice = currencyData.data.RARE[0].quote.USD.price.toFixed(2);
   const rareKrwPrice = currencyData.data.RARE[0].quote.KRW.price.toFixed(0);
 
+  //화폐별 24h 변화량 추출
+  const btcChange = currencyData.data.BTC[0].quote.USD.percent_change_24h.toFixed(2);
+  const ethChange = currencyData.data.ETH[0].quote.USD.percent_change_24h.toFixed(2);
+  const degenChange = currencyData.data.DEGEN[0].quote.USD.percent_change_24h.toFixed(2);
+  const moxieChange = currencyData.data.MOXIE[0].quote.USD.percent_change_24h.toFixed(2);
+  const rareChange = currencyData.data.RARE[0].quote.USD.percent_change_24h.toFixed(2);
+
   // 글로벌 데이터 추출
   const btcDominance = globalData.data.btc_dominance.toFixed(2);
   const ethDominance = globalData.data.eth_dominance.toFixed(2);
@@ -108,5 +115,6 @@ export async function fetchCoinData() {
 
     return {btcUsdPrice, btcKrwPrice, ethUsdPrice, ethKrwPrice, degenUsdPrice, degenKrwPrice, 
             moxieUsdPrice, moxieKrwPrice, rareUsdPrice, rareKrwPrice, 
+            btcChange, ethChange, degenChange, moxieChange, rareChange,
             btcDominance, ethDominance, fearAndGreedValue, fearAndGreedClassification };
   }
